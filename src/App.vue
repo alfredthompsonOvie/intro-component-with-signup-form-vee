@@ -30,7 +30,7 @@
 							class="firstName"
 						/>
 						<img
-							src="images/icon-error.svg"
+							src="@/assets/icon-error.svg"
 							alt="error icon"
 							class="errorImg"
 						/>
@@ -46,7 +46,7 @@
 							class="lastName"
 						/>
 						<img
-							src="images/icon-error.svg"
+              src="@/assets/icon-error.svg"
 							alt="error icon"
 							class="errorImg"
 						/>
@@ -62,7 +62,7 @@
 							class="email"
 						/>
 						<img
-							src="images/icon-error.svg"
+              src="@/assets/icon-error.svg"
 							alt="error icon"
 							class="errorImg"
 						/>
@@ -80,7 +80,7 @@
 							class="password"
 						/>
 						<img
-							src="images/icon-error.svg"
+              src="@/assets/icon-error.svg"
 							alt="error icon"
 							class="errorImg"
 						/>
