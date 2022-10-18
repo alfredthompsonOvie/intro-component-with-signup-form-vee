@@ -7,21 +7,26 @@
 			</p>
 		</div>
 		<div class="formContainer">
-			<form class="form">
+			<vee-form class="form">
 				<div class="formGroup">
 					<label for="firstName"></label>
-					<input
-						type="text"
-						name="firstName"
-						id="firstName"
-						placeholder="First Name"
-						class="firstName"
-					/>
-					<img
-						src="@/assets/icon-error.svg"
-						alt="error icon"
-						class="errorImg"
-					/>
+					<vee-field name="firstName" :bails="false" v-slot="{ field, errors }" >
+						<input
+							type="text"
+							id="firstName"
+							placeholder="First Name"
+							class="firstName"
+              v-bind="field"
+						/>
+            <div v-for="error in errors" :key="error">
+            {{ error }}
+            </div>
+            <img
+              src="@/assets/icon-error.svg"
+              alt="error icon"
+              class="errorImg"
+            />
+					</vee-field>
 					<small class="errorMessage"> First Name cannot be empty </small>
 				</div>
 				<div class="formGroup">
@@ -75,7 +80,7 @@
 				<div class="formGroup">
 					<button type="submit" class="btn cta">claim your free trail</button>
 				</div>
-			</form>
+			</vee-form>
 			<p class="termsAndConditions">
 				<small>
 					<span> By clicking the button you are agreeing to our </span>
