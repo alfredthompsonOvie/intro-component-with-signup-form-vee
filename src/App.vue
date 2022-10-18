@@ -1,16 +1,6 @@
 <template>
 	<div class="container">
-		<div class="content">
-			<h1 class="heading">
-				<span class="blockText">Learn to code by</span>
-				<span class="blockText">watching others</span>
-			</h1>
-			<p class="description">
-				See how experienced developers solve problems in real-time. Watching
-				scripted tutorials is great, but understanding how developers think is
-				invaluable.
-			</p>
-		</div>
+		<app-content />
 		<div class="signup-form">
 			<div class="sales trial__info">
 				<p>
@@ -118,8 +108,12 @@
 </template>
 
 <script>
+import AppContent from "@/components/AppContent.vue"
 export default {
-	name: "App",
+  name: "App",
+  components: {
+    AppContent,
+  }
 };
 </script>
 
