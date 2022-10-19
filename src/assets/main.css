@@ -11,7 +11,7 @@
   --Blue: hsl(248, 32%, 49%);
   --DarkBlue: hsl(249, 10%, 26%);
   --GrayishBlue: hsl(246, 25%, 77%);
-  --GreenAlpha: rgba(56, 204, 140, 0.9);
+  --GreenAlpha: rgba(56, 204, 140, 0.7);
   --DarkBlueAlpha: rgba(0, 0, 0, 0.2);
   --DarkAlpha: rgba(0, 0, 0, 0.2);
 }
@@ -109,9 +109,13 @@ input:focus {
   box-shadow: 0 3px 0px hsl(154, 96%, 33%);
   font-weight: var(--fw-bold);
   cursor: pointer;
+  transition: all .3s linear;
 }
 .cta:active {
   box-shadow: none;
+}
+.cta:hover {
+  background-color: var(--GreenAlpha);
 }
 .formContainer p {
   text-align: center;
