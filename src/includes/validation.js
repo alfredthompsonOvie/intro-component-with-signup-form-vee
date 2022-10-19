@@ -1,5 +1,5 @@
 import { Form as VeeForm, Field as VeeField, defineRule, configure } from 'vee-validate'
-import { required, min, max, email } from '@vee-validate/rules';
+import { required, min, max, email, is_not as isNot} from '@vee-validate/rules';
 
 export default {
   install(app) {
@@ -13,6 +13,7 @@ export default {
     defineRule("min", min)
     defineRule("max", max)
     defineRule("email", email)
+    defineRule("is_not", isNot)
 
     configure({
       generateMessage: (ctx) => {
@@ -23,6 +24,7 @@ export default {
           max: `The field ${ctx.field} is too long.`,
           email: `Looks like this is not an email `,
           password: `Password cannot be empty`,
+          is_not: `Password cannot be password`,
         }
         const message = messages[ctx.rule.name] ? messages[ctx.rule.name] : `The field ${ctx.field} is invalid.`
 

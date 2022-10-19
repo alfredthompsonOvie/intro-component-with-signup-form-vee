@@ -121,6 +121,9 @@ input:focus {
   text-align: center;
   color: var(--GrayishBlue);
 }
+.termsAndConditions {
+  font-size: .8rem;
+}
 .termsAndSevices {
   color: var(--Red);
   text-decoration: none;
