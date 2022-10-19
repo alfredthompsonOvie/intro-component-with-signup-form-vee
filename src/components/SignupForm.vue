@@ -30,10 +30,9 @@
 						/>
 					</vee-field>
 				</div>
-				<!-- ----------------------------------------------------------------------- -->
 
 				<div class="formGroup">
-					<label for="lastName"> </label>
+					<label for="lastName"></label>
 					<vee-field :bails="false" v-slot="{ field, errors }" name="lastName">
 						<input
 							type="text"
@@ -54,8 +53,6 @@
 						/>
 					</vee-field>
 				</div>
-				<!-- ----------------------------------------------------------------------- -->
-				<!-- ----------------------------------------------------------------------- -->
 
 				<div class="formGroup">
 					<label for="email"></label>
@@ -79,8 +76,6 @@
             />
 					</vee-field>
 				</div>
-				<!-- ----------------------------------------------------------------------- -->
-				<!-- ----------------------------------------------------------------------- -->
 
 				<div class="formGroup">
 					<label for="password"></label>
@@ -145,4 +140,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
