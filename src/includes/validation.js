@@ -1,5 +1,5 @@
 import { Form as VeeForm, Field as VeeField, defineRule } from 'vee-validate'
-import { required, min, max, email, } from '@vee-validate/rules';
+import { required, min, max, email, is_not as isNot} from '@vee-validate/rules';
 
 export default {
   install(app) {
@@ -10,5 +10,6 @@ export default {
     defineRule("min", min)
     defineRule("max", max)
     defineRule("email", email)
+    defineRule("is_not", isNot)
   }
 }

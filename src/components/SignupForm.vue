@@ -7,7 +7,10 @@
 			</p>
 		</div>
 		<div class="formContainer">
-			<vee-form class="form">
+			<vee-form 
+      class="form"
+      :validation-schema="schema"
+      @submit="onSubmit">
 				<div class="formGroup">
 					<label for="firstName"></label>
 					<vee-field name="firstName" :bails="false" v-slot="{ field, errors }" >
@@ -16,12 +19,14 @@
 							id="firstName"
 							placeholder="First Name"
 							class="firstName"
+              :class="{ error: errors.length}"
               v-bind="field"
 						/>
-            <div v-for="error in errors" :key="error">
+            <div v-for="error in errors" :key="error" class="errorMessage">
             {{ error }}
             </div>
             <img
+              v-if="errors.length"
               src="@/assets/icon-error.svg"
               alt="error icon"
               class="errorImg"
@@ -95,7 +100,22 @@
 
 <script>
 export default {
-	name: "SignupForm",
+  name: "SignupForm",
+  data() {
+    return {
+      schema: {
+        firstName: 'required|min:2|max:30',
+        lastName: 'required|min:2|max:30',
+        email: 'required|min:2|max:30|email',
+        password: 'required|min:2|max:30|is_not:password',
+      }
+    }
+  },
+  methods: {
+    onSubmit(values) {
+      console.log(values);
+    }
+  }
 };
 </script>
 

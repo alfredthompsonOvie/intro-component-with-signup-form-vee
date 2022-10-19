@@ -94,6 +94,9 @@ input::placeholder {
 input:focus {
   border: 2px solid var(--GrayishBlue);
 }
+.error {
+  border: 1px solid var(--Red);
+}
 .cta {
   width: 100%;
   padding: 1em;
