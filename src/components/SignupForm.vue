@@ -7,80 +7,106 @@
 			</p>
 		</div>
 		<div class="formContainer">
-			<vee-form 
-      class="form"
-      :validation-schema="schema"
-      @submit="onSubmit">
+			<vee-form class="form" :validation-schema="schema" @submit="onSubmit">
 				<div class="formGroup">
 					<label for="firstName"></label>
-					<vee-field name="firstName" :bails="false" v-slot="{ field, errors }" >
+					<vee-field name="firstName" :bails="false" v-slot="{ field, errors }">
 						<input
 							type="text"
 							id="firstName"
 							placeholder="First Name"
 							class="firstName"
-              :class="{ error: errors.length}"
+							:class="{ error: errors.length }"
+							v-bind="field"
+						/>
+						<div v-for="error in errors" :key="error" class="errorMessage">
+							{{ error }}
+						</div>
+						<img
+							v-if="errors.length"
+							src="@/assets/icon-error.svg"
+							alt="error icon"
+							class="errorImg"
+						/>
+					</vee-field>
+				</div>
+				<!-- ----------------------------------------------------------------------- -->
+
+				<div class="formGroup">
+					<label for="lastName"> </label>
+					<vee-field :bails="false" v-slot="{ field, errors }" name="lastName">
+						<input
+							type="text"
+							id="lastName"
+							placeholder="Last Name"
+							class="lastName"
+							:class="{ error: errors.length }"
+							v-bind="field"
+						/>
+						<div v-for="error in errors" :key="error" class="errorMessage">
+							{{ error }}
+						</div>
+						<img
+							src="@/assets/icon-error.svg"
+							alt="error icon"
+							class="errorImg"
+							v-if="errors.length"
+						/>
+					</vee-field>
+				</div>
+				<!-- ----------------------------------------------------------------------- -->
+				<!-- ----------------------------------------------------------------------- -->
+
+				<div class="formGroup">
+					<label for="email"></label>
+					<vee-field name="email" :bails="false" v-slot="{ field, errors }">
+						<input
+							type="email"
+							id="email"
+							placeholder="Email Address"
+							class="email"
+              :class="{ error: errors.length }"
               v-bind="field"
 						/>
             <div v-for="error in errors" :key="error" class="errorMessage">
-            {{ error }}
+              {{ error }}
             </div>
             <img
-              v-if="errors.length"
               src="@/assets/icon-error.svg"
               alt="error icon"
               class="errorImg"
+              v-show="errors.length"
             />
 					</vee-field>
-					<small class="errorMessage"> First Name cannot be empty </small>
 				</div>
-				<div class="formGroup">
-					<label for="lastName"> </label>
-					<input
-						type="text"
-						name="lastName"
-						id="lastName"
-						placeholder="Last Name"
-						class="lastName"
-					/>
-					<img
-						src="@/assets/icon-error.svg"
-						alt="error icon"
-						class="errorImg"
-					/>
-					<small class="errorMessage"> Last Name cannot be empty </small>
-				</div>
-				<div class="formGroup">
-					<label for="email"></label>
-					<input
-						type="email"
-						name="email"
-						id="email"
-						placeholder="Email Address"
-						class="email"
-					/>
-					<img
-						src="@/assets/icon-error.svg"
-						alt="error icon"
-						class="errorImg"
-					/>
-					<small class="errorMessage"> Looks like this is not an email </small>
-				</div>
+				<!-- ----------------------------------------------------------------------- -->
+				<!-- ----------------------------------------------------------------------- -->
+
 				<div class="formGroup">
 					<label for="password"></label>
-					<input
-						type="password"
-						name="password"
+					<vee-field
+          name="password"
+						:bails="false"
+            v-slot="{ field, errors }"
+					>
+          <input 
+          type="password"
 						id="password"
 						placeholder="Password"
 						class="password"
-					/>
+            :class="{ error: errors.length }"
+            v-bind="field"
+          >
+          <div v-for="error in errors" :key="error" class="errorMessage">
+            {{ error }}
+          </div>
 					<img
 						src="@/assets/icon-error.svg"
 						alt="error icon"
 						class="errorImg"
+            v-show="errors.length"
 					/>
-					<small class="errorMessage"> Password cannot be empty </small>
+        </vee-field>
 				</div>
 				<div class="formGroup">
 					<button type="submit" class="btn cta">claim your free trail</button>
@@ -100,22 +126,22 @@
 
 <script>
 export default {
-  name: "SignupForm",
-  data() {
-    return {
-      schema: {
-        firstName: 'required|min:2|max:30',
-        lastName: 'required|min:2|max:30',
-        email: 'required|min:2|max:30|email',
-        password: 'required|min:2|max:30|is_not:password',
-      }
-    }
-  },
-  methods: {
-    onSubmit(values) {
-      console.log(values);
-    }
-  }
+	name: "SignupForm",
+	data() {
+		return {
+			schema: {
+				firstName: "firstName|min:2|max:30",
+				lastName: "lastName|min:2|max:30",
+				email: "required|min:2|max:30|email",
+				password: "password|min:2|max:30|is_not:password",
+			},
+		};
+	},
+	methods: {
+		onSubmit(values) {
+			console.log(values);
+		},
+	},
 };
 </script>
 

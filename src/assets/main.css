@@ -95,7 +95,7 @@ input:focus {
   border: 2px solid var(--GrayishBlue);
 }
 .error {
-  border: 1px solid var(--Red);
+  border: 2px solid var(--Red);
 }
 .cta {
   width: 100%;
@@ -130,7 +130,7 @@ input:focus {
   text-align: right;
   font-size: 12px;
   padding: 0.3em 0;
-  display: none;
+  font-style: italic;
 }
 .errorImg {
   position: absolute;
