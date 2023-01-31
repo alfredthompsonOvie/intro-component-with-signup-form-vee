@@ -1,14 +1,14 @@
 <template>
-	<div class="signup-form">
-		<div class="sales trial__info">
-			<p>
-				Try it free 7 days
-				<span class="pricing">then $20/mo. thereafter</span>
-			</p>
-		</div>
-		<div class="formContainer">
+	<section class="signup-form">
+		<h1 class="trial__info">
+			Try it free 7 days
+			<span class="pricing">then $20/mo. thereafter</span>
+			<!-- <p>
+			</p> -->
+		</h1>
+		<section class="formContainer">
 			<vee-form class="form" :validation-schema="schema" @submit="onSubmit">
-				<div class="formGroup">
+				<section class="formGroup">
 					<label for="firstName"></label>
 					<vee-field name="firstName" :bails="false" v-slot="{ field, errors }">
 						<input
@@ -18,20 +18,21 @@
 							class="firstName"
 							:class="{ error: errors.length }"
 							v-bind="field"
+							aria-label="enter first name"
 						/>
-						<div v-for="error in errors" :key="error" class="errorMessage">
+						<p v-for="error in errors" :key="error" class="errorMessage">
 							{{ error }}
-						</div>
+						</p>
 						<img
 							v-if="errors.length"
 							src="@/assets/icon-error.svg"
-							alt="error icon"
+							alt="exclamation mark"
 							class="errorImg"
 						/>
 					</vee-field>
-				</div>
+				</section>
 
-				<div class="formGroup">
+				<section class="formGroup">
 					<label for="lastName"></label>
 					<vee-field :bails="false" v-slot="{ field, errors }" name="lastName">
 						<input
@@ -41,20 +42,21 @@
 							class="lastName"
 							:class="{ error: errors.length }"
 							v-bind="field"
+							aria-label="enter last name"
 						/>
-						<div v-for="error in errors" :key="error" class="errorMessage">
+						<p v-for="error in errors" :key="error" class="errorMessage">
 							{{ error }}
-						</div>
+						</p>
 						<img
 							src="@/assets/icon-error.svg"
-							alt="error icon"
+							alt="exclamation mark"
 							class="errorImg"
 							v-if="errors.length"
 						/>
 					</vee-field>
-				</div>
+				</section>
 
-				<div class="formGroup">
+				<section class="formGroup">
 					<label for="email"></label>
 					<vee-field name="email" :bails="false" v-slot="{ field, errors }">
 						<input
@@ -64,20 +66,21 @@
 							class="email"
               :class="{ error: errors.length }"
               v-bind="field"
+							aria-label="enter email address"
 						/>
-            <div v-for="error in errors" :key="error" class="errorMessage">
+            <p v-for="error in errors" :key="error" class="errorMessage">
               {{ error }}
-            </div>
+            </p>
             <img
               src="@/assets/icon-error.svg"
-              alt="error icon"
+              alt="exclamation mark"
               class="errorImg"
               v-show="errors.length"
             />
 					</vee-field>
-				</div>
+				</section>
 
-				<div class="formGroup">
+				<section class="formGroup">
 					<label for="password"></label>
 					<vee-field
           name="password"
@@ -91,18 +94,19 @@
 						class="password"
             :class="{ error: errors.length }"
             v-bind="field"
+						aria-label="enter password"
           >
-          <div v-for="error in errors" :key="error" class="errorMessage">
+          <p v-for="error in errors" :key="error" class="errorMessage">
             {{ error }}
-          </div>
+          </p>
 					<img
 						src="@/assets/icon-error.svg"
-						alt="error icon"
+						alt="exclamation mark"
 						class="errorImg"
             v-show="errors.length"
 					/>
         </vee-field>
-				</div>
+			</section>
 				<div class="formGroup">
 					<button type="submit" class="btn cta">claim your free trail</button>
 				</div>
@@ -111,12 +115,13 @@
 				<small>
 					<span> By clicking the button you are agreeing to our </span>
 					<span>
+						<!-- using anchor tag instead of routerlink because i didnt set up this project with routing capabilities -->
 						<a href="#" class="termsAndSevices">Terms and Services</a></span
 					>
 				</small>
 			</p>
-		</div>
-	</div>
+		</section>
+	</section>
 </template>
 
 <script>

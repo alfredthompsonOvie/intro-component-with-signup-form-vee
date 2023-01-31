@@ -62,6 +62,7 @@ body {
   text-align: center;
   border-radius: 10px;
   padding: 1em 2em;
+  font-size: 1rem;
   font-weight: var(--fw-normal);
   margin-bottom: 2em;
   box-shadow: 0 6px 0px var(--DarkAlpha);
@@ -85,7 +86,6 @@ input {
   color: var(--DarkBlue);
   padding: 1em;
   border-radius: 5px;
-  outline: none;
   border: 1px solid var(--GrayishBlue);
 }
 input::placeholder {
@@ -103,7 +103,6 @@ input:focus {
   text-transform: uppercase;
   color: #fff;
   background-color: var(--Green);
-  outline: none;
   border: none;
   border-radius: 5px;
   box-shadow: 0 3px 0px hsl(154, 96%, 33%);
@@ -130,7 +129,7 @@ input:focus {
   font-weight: var(--fw-bold);
   padding-left: 0.5em;
 }
-.errorMessage {
+p.errorMessage {
   display: block;
   width: 100%;
   color: var(--Red);
@@ -197,8 +196,8 @@ input:focus {
   .signup-form {
     grid-column: 3;
   }
-  .trial__info p {
+  /* .trial__info p {
     width: 100%;
     margin: 0 auto;
-  }
+  } */
 }
